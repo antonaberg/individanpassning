@@ -1,0 +1,62 @@
+<html>
+<head>
+</head>
+<body>
+
+<h3>Logga in:</h3>
+  <form name="inlog" method="post" onsubmit="return validateForm('inlog', false)" action="intro.php">
+    Ditt namn: <input type="text" name="namn" size="30"><br>
+    Password: <input type="password" name="losen" size="30"><br>
+  <input type="submit" value="Skicka!">
+  </form>
+  <br>
+<h3>Eller skapa användare:</h3>
+  <form name="nyanv" method="post" onsubmit="return validateForm('nyanv', true)" action="nyanv.php">
+    Ditt namn: <input type="text" name="namn" size="30"><br>
+    Password: <input type="password" name="losen" size="30"><br>
+	Och igen: <input type="password" name="koll" size="30"><br>
+	<br>
+	Min favoritfont:<br>
+	  <input type="radio" name="font" value="Times New Roman" checked="checked"><font face="Times New Roman">Times New Roman</font><br>
+      <input type="radio" name="font" value="Arial"><font face="Arial">Arial</font><br>
+      <input type="radio" name="font" value="Calibri"><font face="Calibri">Calibri</font><br>
+      <input type="radio" name="font" value="Baskerville Old Face"><font face="Baskerville Old Face">Baskerville Old Face</font><br>
+	<br>
+	Min älsklingsfärg:<br>
+	  <input type="radio" name='farg' value='"apa.gif"' checked="checked">apa<br>
+	  <input type="radio" name='farg' value='"apa.jpg"' checked="checked">apa2<br>
+	  
+	<br>
+
+    <input type="submit" value="Skicka!">
+  </form>
+  
+  <script>
+  function validateForm(frm, kll) //Detta görs bättre och enklare med jQuery
+  {
+    var namn = document.forms[frm]["namn"].value;
+	if (namn == null || namn == "")
+    {
+      alert("Ange namn plz");
+      return false;
+    }
+	
+	var losen = document.forms[frm]["losen"].value;
+	if (losen == null || losen == "")
+    {
+      alert("Ange password plz");
+      return false;
+    }
+	
+	if(kll)
+	{
+	  if(!(document.forms[frm]["koll"].value == losen))
+	  {
+        alert("Dina password var olika");
+        return false;
+      }
+    }	  
+  }
+  </script>
+</body>
+</html>
